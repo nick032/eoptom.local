@@ -123,7 +123,7 @@ ul {
     border: 1px solid #ccc;
     border-bottom: none;
 }
-.header-section-2 .menu ul li a:hover {
+.header-section-2 > .menu > ul > li > a:hover {
     background: linear-gradient(to top, #ec0a0a, #f97070);
     color: #fff;
 }
@@ -134,16 +134,29 @@ ul {
 ul .sub-menu {
     background: linear-gradient(to top, #ec0a0a, #f97070);
     color: #fff;
-    padding: 5px 10px;
+    padding: 0 10px;
     position: absolute;
     width: 100%;
     left: 0;
     height: 25px;
 }
-ul .sub-menu li a {
+ul .sub-menu li {
+    margin-right: 0 !important;
+    height: 23px;
+}
+ul .sub-menu  li a {
     color: #fff;
     border-right: 1px solid #fff;
-    padding: 2px 10px;
+    padding: 1px 6px 1px 6px;
+    font-size: 10px;
+    display: inline-block;
+    line-height: 19px;
+}
+ul .sub-menu li a:hover {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #ffffff;
+    color: #000;
 }
 .header-section-2  .person-area {
     float: right;
@@ -167,4 +180,48 @@ ul .sub-menu li a {
 
 .breadcrumbs {
     margin-top: 27px;
+    font-size: 12px;
+    margin-bottom:10px;
+}
+main {
+
+}
+main h2 {
+    color: #EF2020;
+    font-weight: 200;
+    border-bottom: 2px solid #EF2020;
+    padding-bottom: 5px;
+}
+main h5 {
+    margin: 3px 0 5px;
+}
+main .content #map {
+    float: left;
+    width: 650px;
+    height: 400px;
+}
+.placemark {
+    background-color: #00cd74;
+    color: #fff;
+    padding: 5px 10px;
+}
+main .content .descript-map {
+    float: right;
+}
+main .content .descript-map {
+    border-radius: 5px;
+    /*border: 1px solid #000;*/
+    width: 273px;
+    padding: 5px;
+    background-color: #f3f3f3;
+}
+.citys {
+    padding-left: 25px;
+}
+.citys li a:before {
+    content: "\2603";
+}
+.citys li a {
+    font-size: 14px;
+
 }

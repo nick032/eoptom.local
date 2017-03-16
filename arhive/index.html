@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Еоптовик</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="top-menu clearfix">
+                <ul>
+                    <li><a href="#">Доставка</a></li>
+                    <li><a href="#">Оплата</a></li>
+                    <li><a href="#">Ваши воопросы</a></li>
+                    <li><a href="#">Обратная связь</a></li>
+                </ul>
+            </div>
+            <div class="header-section-1 clearfix">
+                <div class="logo">
+                    <a href="/"><img src="img/logo.png" alt=""></a>
+                </div>
+                <div class="contact-us">
+                    <div class="top-form">
+                        <div class="search-form">
+                            <form action="" id="search">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                                <input class="input-search" type="text" name="search">
+                                <input class="btn-search" type="submit" value="Поиск">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="phone"><i class="fa fa-phone" aria-hidden="true"></i><span>8-800-800-80-80</span></div>
+                    <div class="vk"><a href="#"><i class="fa fa-vk" aria-hidden="true"></i></a></div>
+                    <div class="ok"><a href="#"><i class="fa fa-odnoklassniki" aria-hidden="true"></i></a></div>
+                </div>
+            </div>
+            <div class="header-section-2 clearfix">
+                <div class="menu clearfix">
+                    <ul>
+                        <li><a href="#">интернет магазин</a></li>
+                        <li><a class="active-link" href="#">наши магаины</a>
+                            <ul class="sub-menu">
+                                <li><a href="#">Пункт 1</a></li>
+                                <li><a href="#">Пункт 2</a></li>
+                                <li><a href="#">Пункт 3</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">вакансии</a></li>
+                        <li><a href="#">поставщикам</a></li>
+                        <li><a href="#">арнедодателям</a></li>
+                    </ul>
+                </div>
+                <div class="person-area">
+                    <h4>Личный кабинет</h4>
+                    <ul>
+                        <li><a href="#">Войти</a></li>
+                        <li><a href="#">Зарегистрироваться</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="breadcrumbs">
+                Домашняя страница > Наши магазины
+            </div>
+        </header>
+        <main>
+            <h2>Наши магазины</h2>
+            <div class="content clearfix">
+                <h5>Магазины на карте</h5>
+                <div id="map"></div>
+                <div class="descript-map">
+                    <h5>Магазины</h5>
+                    <div class="citys">
+                        <ul>
+                            <li><a href="#">Брянск</a></li>
+                            <li><a href="#">Клинцы</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+    <script type="text/javascript">
+        ymaps.ready(init); // карта соберется после загрузки скрипта и элементов
+        var myMap; // заглобалим переменную карты чтобы можно было ею вертеть из любого места
+        function init () { // функция - собиралка карты и фигни
+            myMap = new ymaps.Map("map", { // создаем и присваиваем глобальной переменной карту и суем её в див с id="map"
+                center: [52.931210,33.578218], // ну тут центр
+                behaviors: ['default', 'scrollZoom'], // скроллинг колесом
+                zoom: 7 // тут масштаб
+            });
+            myMap.controls // добавим всяких кнопок, в скобках их позиции в блоке
+                    .add('zoomControl', { left: 5, top: 5 }) //Масштаб
+                    .add('typeSelector') //Список типов карты
+                    .add('mapTools', { left: 35, top: 5 }) // Стандартный набор кнопок
+                    .add('searchControl'); // Строка с поиском
+            myPlacemark0 = new ymaps.Placemark([52.752836,32.231886], { // Создаем метку с такими координатами и суем в переменную
+                balloonContent: '<p class="placemark">Ё Магазин пр-т Ленина 13 </p>' // сдесь содержимое балуна в формате html, все стили в css
+            }, {
+                iconImageHref: 'img/placemark.png', // картинка иконки
+                iconImageSize: [32, 32], // размер иконки
+                /*iconImageOffset: [-32, -64],*/ // позиция иконки
+                hideIconOnBalloonOpen: false,
+                balloonContentSize: [270, 99], // размер нашего кастомного балуна в пикселях
+                balloonLayout: "default#imageWithContent", // указываем что содержимое балуна кастомная херь
+                balloonImageHref: 'img/ballon1.png', // Картинка заднего фона балуна
+                balloonImageOffset: [-65, -89], // смещание балуна, надо подогнать под стрелочку
+                balloonImageSize: [260, 89], // размер картинки-бэкграунда балуна
+                balloonShadow: false
+            });
+            myPlacemark1 = new ymaps.Placemark([52.752699,32.236456], { // Создаем метку с такими координатами и суем в переменную
+                balloonContent: '<p class="placemark">Ё Магазин ул. Октябрьская д40</p>' // сдесь содержимое балуна в формате html, все стили в css
+            }, {
+                iconImageHref: 'img/placemark.png', // картинка иконки
+                iconImageSize: [32, 32], // размер иконки
+                /*iconImageOffset: [-32, -64],*/ // позиция иконки
+                hideIconOnBalloonOpen: false,
+                balloonContentSize: [270, 99], // размер нашего кастомного балуна в пикселях
+                balloonLayout: "default#imageWithContent", // указываем что содержимое балуна кастомная херь
+                balloonImageHref: 'img/ballon1.png', // Картинка заднего фона балуна
+                balloonImageOffset: [-65, -89], // смещание балуна, надо подогнать под стрелочку
+                balloonImageSize: [260, 89], // размер картинки-бэкграунда балуна
+                balloonShadow: false
+            });
+
+            /* Добавляем метки на карту */
+            myMap.geoObjects
+                    .add(myPlacemark0)
+                    .add(myPlacemark1);
+        }
+
+    </script>
+</body>
+</html>
